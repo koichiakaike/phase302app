@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phase301app</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <li>Phase3課題　Bootstrap</li>
+        <li>トップページ</li>
+      </ul>
+    </header>
+    <%= yield %>
+    <footer>NTTPC Communications/Koichi Akaike/2018.04.04</footer>
+  </body>
+</html>
