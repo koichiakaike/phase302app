@@ -7,7 +7,13 @@
   </ul>
   <hr>
   <ul class="row">
-    <li class="col-md-6"><a href=# class="btn btn-primary">ログイン</a></li>
-    <li class="col-md-6"><a href=# class="btn btn-danger">メンバー登録</a></li>
+    <% if logged_in? %>
+        <li class="col-md-6"><%= link_to "ブログをみる", posts_path ,class:"btn btn-success" %></li>
+        <li class="col-md-6"><%= link_to "別サービスをみる", posts_path ,class:"btn btn-success" %></li>
+    <% else %>
+        <li class="col-md-6"><%= link_to "メンバー登録", new_user_path ,class:"btn btn-primary"%></li>
+        <li class="col-md-6"><%= link_to "ログイン", new_session_path ,class:"btn btn-danger"%></li>
+    <% end %>
+  </ul>
 </div>
 </article>

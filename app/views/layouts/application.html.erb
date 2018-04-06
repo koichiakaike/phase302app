@@ -7,15 +7,33 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
+      <nav class="navbar navbar-default">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#任意のID">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div id="任意のID" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <% if logged_in? %>
+                <li><%= link_to "メンバー情報", user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+                <li><%= link_to "トップへ戻る", top_path %></li>
+            <% else %>
+                <li><%= link_to "メンバー登録", new_user_path %></li>
+                <li><%= link_to "ログイン", new_session_path %></li>
+                <li><%= link_to "トップへ戻る", top_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
       <ul>
-        <li>Phase3課題　Bootstrap</li>
-        <li>トップページ</li>
+        <li>Phase3課題　ログイン機能</li>
       </ul>
     </header>
     <%= yield %>
-    <footer>NTTPC Communications/Koichi Akaike/2018.04.04</footer>
+    <footer>NTTPC Communications/Koichi Akaike/2018.04.06</footer>
   </body>
 </html>
