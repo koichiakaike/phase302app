@@ -21,6 +21,11 @@
     <%= form.text_field :body, id: :post_body %>
   </div>
 
+  <div class="field">
+    <% @user = current_user %>
+    <%= form.hidden_field :user_id, :value => @user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

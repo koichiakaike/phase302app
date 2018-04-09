@@ -9,6 +9,14 @@
   <strong>Body:</strong>
   <%= @post.body %>
 </p>
-
+<hr>
+<% unless @post.user == current_user %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+<hr>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

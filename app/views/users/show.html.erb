@@ -1,3 +1,11 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+<hr>
+<p>お気に入りリスト</p>
+<ul>
+<% @favorites_posts = @user.favorite_posts %>
+<% @favorites_posts.each do |post| %>
+  <li><%= link_to post.title, post %></li>
+<% end %>
+</ul>
